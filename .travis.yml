@@ -5,4 +5,5 @@ dotnet: 2.0.0
 install:
   - dotnet restore
 script:
-  - dotnet build
+  - rm -rf ./publish
+  - dotnet publish -o ./publish
