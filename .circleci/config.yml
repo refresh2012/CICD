@@ -9,5 +9,8 @@ jobs:
           name: Restore packages
           command: dotnet restore
       - run:
-          name: Build
-          command: dotnet build
+          name: Clean publish folder
+          command: rm -rf ./publish
+      - run:
+          name: Publish
+          command: dotnet publish -o ./publish
