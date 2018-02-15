@@ -23,12 +23,12 @@ jobs:
 workflows:
   version: 2
   build_and_test:
-    jobs:
-      - build
-      - hold:
-        type: approval
-        requires:
-          - build
-      - test:
-        requires:
-          - hold
+      jobs:
+        - build
+        - hold:
+          type: approval
+          requires:
+            - build
+        - test:
+          requires:
+            - hold
