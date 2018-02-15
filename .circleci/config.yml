@@ -19,6 +19,7 @@ jobs:
       - image: microsoft/aspnetcore-build:2.0.0
     steps:
       - run: echo testing...
+
 workflows:
   build_and_test:
     jobs:
