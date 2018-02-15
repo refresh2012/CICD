@@ -14,3 +14,20 @@ jobs:
       - run:
           name: Publish
           command: dotnet publish -o ./publish
+  test:
+    docker:
+      - image: microsoft/aspnetcore-build:2.0.0
+    steps:
+      - run: echo testing...
+workflows:
+  version:2
+  build_and_test:
+    jobs:
+      - build
+      - hold:
+        type: approval
+        requires:
+          - build
+      - test:
+        requires:
+          - hold
