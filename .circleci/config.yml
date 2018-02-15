@@ -22,13 +22,13 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  build-approval-test:
     jobs:
       - build
       - hold:
-        type: approval
-        requires:
-          - build
+          type: approval
+          requires:
+           - build
       - test:
-        requires:
-          - hold
+          requires:
+            - hold
